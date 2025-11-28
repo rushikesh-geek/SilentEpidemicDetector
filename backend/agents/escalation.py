@@ -219,8 +219,9 @@ class CrossSourceVerificationAgent:
         self.llm = ChatOpenAI(
             model="gpt-4",
             temperature=0,
-            openai_api_key=settings.OPENAI_API_KEY
-        ) if settings.OPENAI_API_KEY else None
+            openai_api_key=settings.OPENROUTER_API_KEY,
+            openai_api_base=settings.OPENROUTER_BASE_URL
+        ) if settings.OPENROUTER_API_KEY else None
     
     def verify_anomaly(self, anomaly_result: dict) -> dict:
         """
@@ -405,8 +406,9 @@ class EnvironmentalRiskAgent:
         self.llm = ChatOpenAI(
             model="gpt-4",
             temperature=0,
-            openai_api_key=settings.OPENAI_API_KEY
-        ) if settings.OPENAI_API_KEY else None
+            openai_api_key=settings.OPENROUTER_API_KEY,
+            openai_api_base=settings.OPENROUTER_BASE_URL
+        ) if settings.OPENROUTER_API_KEY else None
     
     def assess_environmental_risk(self, ward: str, date: datetime) -> dict:
         """
@@ -537,8 +539,9 @@ class EscalationAgent:
         self.llm = ChatOpenAI(
             model="gpt-4",
             temperature=0.3,
-            openai_api_key=settings.OPENAI_API_KEY
-        ) if settings.OPENAI_API_KEY else None
+            openai_api_key=settings.OPENROUTER_API_KEY,
+            openai_api_base=settings.OPENROUTER_BASE_URL
+        ) if settings.OPENROUTER_API_KEY else None
     
     def process_anomaly(self, anomaly_result: dict) -> dict:
         """

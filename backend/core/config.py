@@ -22,8 +22,9 @@ class Settings(BaseSettings):
     ANOMALY_THRESHOLD: float = 0.7
     DETECTION_CONFIDENCE_MIN: float = 0.6
 
-    # Agent Configuration
-    OPENAI_API_KEY: str = ""
+    # Agent Configuration (OpenRouter)
+    OPENROUTER_API_KEY: str = ""
+    OPENROUTER_BASE_URL: str = "https://openrouter.ai/api/v1"
     LANGCHAIN_VERBOSE: bool = True
 
     # SMTP Configuration
