@@ -65,6 +65,22 @@ async def root():
     }
 
 
+@app.get("/health")
+async def health():
+    """Health check endpoint"""
+    try:
+        db.client.admin.command('ping')
+        return {
+            "status": "healthy",
+            "database": "connected"
+        }
+    except Exception as e:
+        return {
+            "status": "unhealthy",
+            "error": str(e)
+        }
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
